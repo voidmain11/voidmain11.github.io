@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang=""><head><script>document.addEventListener("DOMContentLoaded", ready);
+function ready(){
+	console.log("");            
+	console.log("[window ready] : [start]");
+	console.log("");
+
+
+	// [현재 접속된 url 정보 및 접속 브라우저 확인]
+	// [카카오톡 인앱 브라우저 >> 안드로이드 모바일 기종 인 경우 >> 크롬 브라우저 이동 실시]
+	var Url = location.href;
+	var Agent = navigator.userAgent.toLowerCase();
+	console.log("");            
+	console.log("[window ready] : [접속 Url] : " + Url);
+	console.log("[window ready] : [접속 Agent] : " + Agent);
+	console.log("");
+	//alert(Agent);
+	if(Agent.includes("kakao")){ // 카카오 브라우저로 실행 시킨 경우
+		// 먼저, 카카오 인앱 브라우저 닫기
+		
+		location.href = 'kakaotalk://inappbrowser/close';
+
+		if(navigator.userAgent.match(/iPhone|iPad/i)){ // 아이폰 접속 경우
+			// alert('아이폰');
+			console.log("");
+			console.log("[window ready] : [접속 모바일] : " + "[아이폰]");
+			console.log("");
+			
+		}
+		else { // 안드로이드 접속 경우
+			// alert('안드로이드');
+			console.log("");
+			console.log("[window ready] : [접속 모바일] : " + "[안드로이드]");
+			console.log("");
+			// 크롬으로 새창 열기
+			location.href='intent://'+location.href.replace(/https?:\/\//i,'')+'#Intent;scheme=http;package=com.android.chrome;end';
+			//리프레시 필요..!
+		}
+	}
+
+};</script><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><!--[if IE]><link rel="icon" href="/favicon.ico"><![endif]--><title>pwa_test2</title><link href="/css/app.fb0c6e1c.css" rel="preload" as="style"><link href="/js/app.595cfaef.js" rel="preload" as="script"><link href="/js/chunk-vendors.d9c21b01.js" rel="preload" as="script"><link href="/css/app.fb0c6e1c.css" rel="stylesheet"><link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png"><link rel="manifest" href="/manifest.json"><meta name="theme-color" content="#4DBA87"><meta name="apple-mobile-web-app-capable" content="no"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="님 앱이름"><link rel="apple-touch-icon" href="/img/icons/apple-touch-icon-152x152.png"><link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#4DBA87"><meta name="msapplication-TileImage" content="/img/icons/msapplication-icon-144x144.png"><meta name="msapplication-TileColor" content="#000000"></head><body><noscript><strong>We're sorry but pwa_test2 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script src="/js/chunk-vendors.d9c21b01.js"></script><script src="/js/app.595cfaef.js"></script></body></html>
