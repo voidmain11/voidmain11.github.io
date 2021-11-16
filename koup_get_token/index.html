@@ -9,12 +9,7 @@
 </head>
 
 <body>
-	<a href="itms-services://?action=download-manifest&url=https://voidmain11.github.io/KOUP/manifest.plist">
-        앱 다운받기</a>
-
-        <button onclick="saveToFile_Chrome('abcd','contenttttt')">파일저ㅇ</button>
-
-<script>
+	<script>
     function saveToFile_Chrome(fileName, content) {
     var blob = new Blob([content], { type: 'text/plain' });
     objURL = window.URL.createObjectURL(blob);
@@ -29,8 +24,20 @@
     a.href = objURL;
     a.click();
 }
+	function set_token()
+	{
+		var token = getParameter("token");
+console.log("token : "+token);
+	}
+
 
     </script>
+	<a href="itms-services://?action=download-manifest&url=https://voidmain11.github.io/KOUP/manifest.plist">
+        앱 다운받기</a>
+
+        <button onclick="saveToFile_Chrome('abcd','contenttttt')">파일저ㅇ</button>
+
+
 
 
     </body>
