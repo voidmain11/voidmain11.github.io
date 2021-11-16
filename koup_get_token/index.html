@@ -32,20 +32,17 @@
     </script>
 	
 	<script>
-    function saveToFile_Chrome(fileName, content) {
-    var blob = new Blob([content], { type: 'text/plain' });
-    objURL = window.URL.createObjectURL(blob);
-            
-    // 이전에 생성된 메모리 해제
-    if (window.__Xr_objURL_forCreatingFile__) {
-        window.URL.revokeObjectURL(window.__Xr_objURL_forCreatingFile__);
-    }
-    window.__Xr_objURL_forCreatingFile__ = objURL;
-    var a = document.createElement('a');
-    a.download = fileName;
-    a.href = objURL;
-    a.click();
-}
+		function set_token()
+	{
+		var token = getParam("token");
+// 		console.log("token : "+token);
+		const db = firebase.firestore();
+        const storage = firebase.storage();
+		db.collection('product').doc('tokeninfo').set({token:'datatatatat'});
+		
+        db.collection('product').doc('토큰정보').set({token:new Date()});
+	}
+		
 function getParam(sname) {
     var params = location.search.substr(location.search.indexOf("?") + 1);
     var sval = "";
@@ -56,30 +53,11 @@ function getParam(sname) {
     }
     return sval;
 }
-
-
-		
-	function set_token()
-	{
-		var token = getParam("token");
-// 		console.log("token : "+token);
-// 		saveToFile_Chrome("token_info",token);
-		
-		
-		const db = firebase.firestore();
-        const storage = firebase.storage();
-        db.collection('product').doc('토큰정보').set({token:new Date()});
-	}
-
-
     </script>
 	<h4>파이어베이스 추가됨. 
 	</h4>
 	<a href="itms-services://?action=download-manifest&url=https://voidmain11.github.io/KOUP/manifest.plist">
         앱 다운받기222</a>
-
-        <button onclick="saveToFile_Chrome('abcd','contenttttt')">파일저장</button>
-
 <script>
 	set_token();
 	</script>
