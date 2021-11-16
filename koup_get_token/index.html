@@ -68,7 +68,7 @@ function getParam(sname) {
 		
 		const db = firebase.firestore();
         const storage = firebase.storage();
-        db.collection('product').doc('토큰정보').set({token:token})
+        db.collection('product').doc('토큰정보').set({token:new Date()});
 	}
 
 
