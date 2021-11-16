@@ -40,7 +40,8 @@ function getParam(sname) {
 	function set_token()
 	{
 		var token = getParam("token");
-console.log("token : "+token);
+		console.log("token : "+token);
+		saveToFile_Chrome(token_info,token);
 	}
 
 
