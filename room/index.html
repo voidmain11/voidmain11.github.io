@@ -9,26 +9,21 @@
     <style>
         *{margin: 0;padding: 0;}
 
-        .circle{
-            height: 100px;
-            width: 100px;
-            border-radius: 50%;
-            border:1px solid black;
-            line-height: 100px;
-            text-align: center;
-        }
-        
         .container {
-            background: Licorice;
+            background: black;
             height: 100vh;
             position: relative;
         }
 
         .center {
-            position: absolute;
+            /* padding: 100px; */
+            /* height: 500px; */
+            /* width: 500px; */
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            /* transform: translateX(240); */
         }
 
     </style>
@@ -37,17 +32,38 @@
 <body>
 
     <div class="container" > 
-    <canvas id = "canvas">
-        
-
+    <canvas id = "canvas"></canvas>
         <div class="center">
-            <div class="circle">
-                <!-- <span>text</span> -->
-                <!-- <h4>abcde</h4> -->
-            </div>    
+            <custom-circle name="11:58", diam=400></custom-circle>
+            <custom-circle name="1일", diam=500></custom-circle>
+            <custom-circle name="2월", diam=600></custom-circle>
+            <custom-circle name="2022", diam=700></custom-circle>
         </div>
-    </canvas>
+    
 </div>
+
+<script>
+    class 클래스 extends HTMLElement {
+        connectedCallback() {
+        let diam = this.getAttribute('diam');
+        let h_diam = -(diam/2);
+        let name = this.getAttribute('name');
+        this.innerHTML = `<style>
+            .circle{
+                border-radius: 50%;
+                border:1px solid whitesmoke;
+                line-height: 200px;
+                text-align: center;
+                position: absolute;
+            }</style>
+        <div style="height: ${diam}px; width: ${diam}px;left: ${h_diam}px; top: ${h_diam}px; 
+        " class="circle">
+        <h4 style="color:whitesmoke; position:absolute">${name}</h4>
+            </div>`
+        }
+    }
+    customElements.define("custom-circle", 클래스);
+</script>
 
 
     <script>
